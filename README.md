@@ -1,11 +1,18 @@
-TypeScript ExtJS Demo
+TypeScript ExtJS Es6 Class Extend Issue Demo
 ====================
 
-'extjs-typings-6.2.0' 来自：https://github.com/ExtTS/definitions/tree/master/6.2.0-classic-all-packages-no-jsdocs
+使用es6的class语法： `class extend`，将会运行时报错：
 
-问题：
-有没有办法正确配置`https://github.com/freewind/extjs-typings-6.2.0`，让我们不需要在tsconfig.json的`includes`中添加`node_modules/extjs-typings-6.2.0/**/*.d.ts`
+```
+Class constructor MyPanel cannot be invoked without 'new'
+```
 
+原因是：当前发布的extjs代码是用google的编译器编译的，代码结构不允许我们使用es6语法去继承它们生成的类。
+
+在某些版本中也许可以有限使用，但全面使用应该是在之后的8.x
+https://stackoverflow.com/questions/59663966/ext-js-is-it-possible-with-open-tooling-and-ext-js-7-to-use-es6-class-syntax
+
+所以当前最好还是使用`Ext.define`和`Ext.create`之类
 
 ```
 npm install
